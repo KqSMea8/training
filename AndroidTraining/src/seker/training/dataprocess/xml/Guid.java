@@ -17,4 +17,9 @@ public class Guid {
     public boolean isPermaLink;
     
     public String url;
+
+    @Override
+    public String toString() {
+        return "Guid [isPermaLink=" + isPermaLink + ", url=" + url + "]";
+    }
 }

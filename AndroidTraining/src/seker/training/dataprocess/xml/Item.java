@@ -21,4 +21,10 @@ public class Item {
     public String description;
     public String pubDate;
     public Guid guid;
+    
+    @Override
+    public String toString() {
+        return "Item [title=" + title + ", link=" + link + ", description=" + description + ", pubDate=" + pubDate
+                + ", guid=" + guid + "]";
+    }
 }

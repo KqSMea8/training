@@ -3,6 +3,7 @@
  */
 package seker.training.dataprocess.xml;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,5 +25,11 @@ public class Channel {
     public String description;
     public String pubDate;
     public String lastBuildDate;
-    public List<Item> items;
+    public List<Item> items = new ArrayList<Item>();
+    
+    @Override
+    public String toString() {
+        return "Channel [title=" + title + ", link=" + link + ", description=" + description + ", pubDate=" + pubDate
+                + ", lastBuildDate=" + lastBuildDate + ", items=" + items + "]";
+    }
 }

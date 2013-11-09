@@ -58,6 +58,7 @@ public class TrainingMainActivity extends BaseActivity implements OnItemClickLis
                 android.R.layout.simple_list_item_1, new String[] { KEY_TITLE },
                 new int[] { android.R.id.text1 }));
         mListView.setTextFilterEnabled(true);
+        mListView.setOnItemClickListener(this);
     }
     
     protected List<Map<String, Object>> getData(String prefix) {
