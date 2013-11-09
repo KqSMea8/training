@@ -8,9 +8,9 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import seker.common.utils.TextUtils;
-import seker.training.dataprocess.xml.Channel;
-import seker.training.dataprocess.xml.Guid;
-import seker.training.dataprocess.xml.Item;
+import seker.training.dataprocess.Channel;
+import seker.training.dataprocess.Guid;
+import seker.training.dataprocess.Item;
 import android.util.Log;
 
 /**

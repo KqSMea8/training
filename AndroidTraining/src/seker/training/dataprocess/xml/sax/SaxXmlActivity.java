@@ -8,7 +8,7 @@ import java.io.InputStream;
 
 import seker.common.BaseActivity;
 import seker.training.TrainingApplication;
-import seker.training.dataprocess.xml.Channel;
+import seker.training.dataprocess.Channel;
 import android.os.Bundle;
 import android.util.Log;
 

@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2013 Seker. All rights reserved.
  */
-package seker.training.dataprocess.xml;
+package seker.training.dataprocess;
 
 import java.util.ArrayList;
 import java.util.List;
