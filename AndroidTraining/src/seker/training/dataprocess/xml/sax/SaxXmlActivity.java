@@ -9,8 +9,10 @@ import java.io.InputStream;
 import seker.common.BaseActivity;
 import seker.training.TrainingApplication;
 import seker.training.dataprocess.Channel;
+import seker.training.dataprocess.ChannelAdapter;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 
 /**
  * 
@@ -33,9 +35,14 @@ public class SaxXmlActivity extends BaseActivity {
             if (LOG) {
                 Log.i(TAG, channel+"");
             }
+            
+            ListView listview = new ListView(this);
+            ChannelAdapter adapter = new ChannelAdapter(channel);
+            listview.setAdapter(adapter);
+            listview.setOnItemClickListener(adapter);
+            setContentView(listview);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
     }
 }
