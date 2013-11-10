@@ -20,6 +20,11 @@ import seker.training.dataprocess.Channel;
  * @since 2013年11月9日
  */
 public class SaxParser {
+    /**
+     * 
+     * @param is
+     * @return
+     */
     public Channel parse(InputStream is) {
         Channel channel = null;
         

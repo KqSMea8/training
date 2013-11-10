@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dataprocess_xml_sax">dataprocess/xml/sax</string>
+    <string name="dataprocess_xml_pull">dataprocess/xml/pull</string>
+    <string name="dataprocess_xml_dom">dataprocess/xml/dom</string>
     
 </resources>
