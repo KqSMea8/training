@@ -31,7 +31,7 @@ public class PullXmlActivity extends BaseActivity {
         
         try {
             InputStream is = getAssets().open("data/data.xml");
-            Channel channel = new PullParser().parse(is);
+            Channel channel = new PullXmlParser().parse(is);
             if (LOG) {
                 Log.i(TAG, channel+"");
             }

@@ -31,7 +31,7 @@ public class SaxXmlActivity extends BaseActivity {
         
         try {
             InputStream is = getAssets().open("data/data.xml");
-            Channel channel = new SaxParser().parse(is);
+            Channel channel = new SaxXmlParser().parse(is);
             if (LOG) {
                 Log.i(TAG, channel+"");
             }

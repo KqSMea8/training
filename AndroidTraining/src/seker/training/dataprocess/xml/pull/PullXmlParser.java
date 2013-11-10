@@ -20,7 +20,7 @@ import seker.training.dataprocess.Item;
  * @author seker
  * @since 2013年11月9日
  */
-public class PullParser {
+class PullXmlParser {
     /**
      * 
      * @param is

@@ -4,4 +4,7 @@
     <string name="dataprocess_xml_pull">dataprocess/xml/pull</string>
     <string name="dataprocess_xml_dom">dataprocess/xml/dom</string>
     
+    <string name="dataprocess_json_android">dataprocess/json/android</string>
+    <string name="dataprocess_json_gson">dataprocess/json/gson</string>
+    <string name="dataprocess_json_fast">dataprocess/json/fast</string>
 </resources>

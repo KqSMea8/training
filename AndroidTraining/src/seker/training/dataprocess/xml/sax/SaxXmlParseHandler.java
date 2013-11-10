@@ -18,7 +18,7 @@ import android.util.Log;
  * @author seker
  * @since 2013年11月9日
  */
-public class ChannelParseHandler extends DefaultHandler {
+class SaxXmlParseHandler extends DefaultHandler {
     
     private StringBuilder buffer = new StringBuilder();
     
