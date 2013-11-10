@@ -3,6 +3,9 @@
  */
 package seker.training.dataprocess;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * 
  * @author seker
@@ -18,6 +21,13 @@ public class Guid {
     
     public String url;
 
+    public JSONObject toJson() throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put(LABEL_ISPERMALINK, isPermaLink);
+        json.put("url", url);
+        return json;
+    }
+    
     @Override
     public String toString() {
         return "Guid [isPermaLink=" + isPermaLink + ", url=" + url + "]";

@@ -36,6 +36,12 @@ public class SaxXmlActivity extends BaseActivity {
                 Log.i(TAG, channel+"");
             }
             
+//            try {
+//                StreamUtils.streamToFile(new ByteArrayInputStream(channel.toJson().toString().getBytes()), new File("/sdcard/data.json"));
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+            
             ListView listview = new ListView(this);
             ChannelAdapter adapter = new ChannelAdapter(channel);
             listview.setAdapter(adapter);

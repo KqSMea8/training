@@ -3,6 +3,9 @@
  */
 package seker.training.dataprocess;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * 
  * @author seker
@@ -21,6 +24,16 @@ public class Item {
     public String description;
     public String pubDate;
     public Guid guid;
+    
+    public JSONObject toJson() throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put(LABEL_TITLE, title);
+        json.put(LABEL_LINK, link);
+        json.put(LABEL_DESCRIPTION, description);
+        json.put(LABEL_PUBDATE, pubDate);
+        json.put(Guid.LABEL_GUID, guid.toJson());
+        return json;
+    }
     
     @Override
     public String toString() {
