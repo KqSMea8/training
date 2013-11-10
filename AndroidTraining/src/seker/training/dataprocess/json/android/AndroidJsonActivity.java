@@ -30,7 +30,7 @@ public class AndroidJsonActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         
         try {
-            InputStream is = getAssets().open("data/data.xml");
+            InputStream is = getAssets().open("data/data.json");
             Channel channel = new AndroidJsonParser().parse(is);
             if (LOG) {
                 Log.i(TAG, channel+"");

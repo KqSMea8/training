@@ -17,6 +17,8 @@ public class Guid {
     
     public static String LABEL_ISPERMALINK = "isPermaLink";
     
+    public static String LABEL_URL = "url";
+    
     public boolean isPermaLink;
     
     public String url;
@@ -24,7 +26,7 @@ public class Guid {
     public JSONObject toJson() throws JSONException {
         JSONObject json = new JSONObject();
         json.put(LABEL_ISPERMALINK, isPermaLink);
-        json.put("url", url);
+        json.put(LABEL_URL, url);
         return json;
     }
     
