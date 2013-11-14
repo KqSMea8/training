@@ -21,7 +21,7 @@ import android.widget.ListView;
  */
 public class DomXmlActivity extends BaseActivity {
     
-    public static final String TAG = "sax";
+    public static final String TAG = "dom.xml";
     
     public static final boolean LOG = TrainingApplication.GLOBAL_LOG & true;
     

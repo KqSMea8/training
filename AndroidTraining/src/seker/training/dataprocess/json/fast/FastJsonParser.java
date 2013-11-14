@@ -1,17 +1,17 @@
-package seker.training.dataprocess.json.gson;
+package seker.training.dataprocess.json.fast;
 
 import java.io.InputStream;
 
 import seker.common.utils.StreamUtils;
 import seker.training.dataprocess.Channel;
 
-import com.google.gson.Gson;
+import com.alibaba.fastjson.JSON;
 
-class GsonParser {
+class FastJsonParser {
     
     public Channel parse(InputStream is) {
         String json = StreamUtils.streamToString(is);
-        Channel channel = new Gson().fromJson(json, Channel.class);
+        Channel channel = JSON.parseObject(json, Channel.class);
         return channel;
     }
 }

@@ -12,6 +12,8 @@ import org.json.JSONObject;
  * @since 2013年11月9日
  */
 public class Item {
+    public static String LABEL_JSON_ITEMS = "items";
+    
     public static String LABEL_ITEM = "item";
 
     public static String LABEL_TITLE = "title";

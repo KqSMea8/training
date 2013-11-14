@@ -32,7 +32,7 @@ class AndroidJsonParser {
         channel.description = json.optString(Channel.LABEL_DESCRIPTION);
         channel.pubDate = json.optString(Channel.LABEL_PUBDATE);
         channel.lastBuildDate = json.optString(Channel.LABEL_LASTBUILDDATE);
-        JSONArray jsons = json.getJSONArray(Item.LABEL_ITEM);
+        JSONArray jsons = json.getJSONArray(Item.LABEL_JSON_ITEMS);
         for (int i = 0, n = jsons.length(); i < n; i++) {
             Item item = parseItem(jsons.getJSONObject(i));
             channel.items.add(item);
