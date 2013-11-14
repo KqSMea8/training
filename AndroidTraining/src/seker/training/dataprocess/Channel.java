@@ -43,7 +43,7 @@ public class Channel {
         for (Item item : items) {
             jsons.put(item.toJson());
         }
-        json.put(Item.LABEL_ITEM, jsons);
+        json.put(Item.LABEL_ITEM + "s", jsons);
         
         return json;
     }

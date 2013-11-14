@@ -4,15 +4,16 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
 
     <application
-
         android:allowBackup="true"
         android:name=".TrainingApplication"
-	android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -44,6 +45,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".dataprocess.json.android.AndroidJsonActivity" android:label="@string/dataprocess_json_android">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".dataprocess.json.gson.GsonActivity" android:label="@string/dataprocess_json_gson">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.SAMPLE_CODE" />
