@@ -7,4 +7,6 @@
     <string name="dataprocess_json_android">dataprocess/json/android json</string>
     <string name="dataprocess_json_gson">dataprocess/json/google json</string>
     <string name="dataprocess_json_fast">dataprocess/json/fast json</string>
+    
+    <string name="dataprocess_protobuf">dataprocess/protobuf</string>
 </resources>

@@ -3,6 +3,7 @@
  */
 package seker.training.dataprocess.xml.sax;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -10,6 +11,8 @@ import seker.common.BaseActivity;
 import seker.training.TrainingApplication;
 import seker.training.dataprocess.Channel;
 import seker.training.dataprocess.ChannelAdapter;
+import seker.training.dataprocess.Item;
+import seker.training.dataprocess.protobuf.ChannelProto;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
@@ -42,6 +45,34 @@ public class SaxXmlActivity extends BaseActivity {
 //            } catch (JSONException e) {
 //                e.printStackTrace();
 //            }
+            
+//            ChannelProto.Channel.Builder cBuilder = ChannelProto.Channel.newBuilder();
+//            cBuilder.setTitle(channel.title);
+//            cBuilder.setLink(channel.link);
+//            cBuilder.setDescription(channel.description);
+//            cBuilder.setPubDate(channel.pubDate);
+//            cBuilder.setLastBuildDate(channel.lastBuildDate);
+//            for (Item item : channel.items) {
+//                ChannelProto.Channel.Item.Builder iBuilder = ChannelProto.Channel.Item.newBuilder();
+//                iBuilder.setTitle(item.title);
+//                iBuilder.setLink(item.link);
+//                iBuilder.setDescription(item.description);
+//                iBuilder.setPubDate(item.pubDate);
+//                
+//                ChannelProto.Channel.Item.Guid.Builder gBuilder = ChannelProto.Channel.Item.Guid.newBuilder();
+//                gBuilder.setUrl(item.guid.url);
+//                gBuilder.setIsPermaLink(item.guid.isPermaLink);
+//                
+//                iBuilder.setGuid(gBuilder.build());
+//                
+//                cBuilder.addItem(iBuilder.build());
+//            }
+//            ChannelProto.Channel pChannel = cBuilder.build();
+//            
+//            FileOutputStream output = new FileOutputStream("/sdcard/data.pb");
+//            pChannel.writeTo(output);
+//            output.flush();
+//            output.close();
             
             ListView listview = new ListView(this);
             ChannelAdapter adapter = new ChannelAdapter(channel);
