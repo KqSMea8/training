@@ -84,7 +84,7 @@ class DomXmlParser {
         items = element.getElementsByTagName(Item.LABEL_ITEM);
         if (null != items) {
             for (int i = 0, n = items.getLength(); i < n; i++) {
-                Element e = (Element) items.item(0);
+                Element e = (Element) items.item(i);
                 Item item = parseItem(e);
                 channel.items.add(item);
             }

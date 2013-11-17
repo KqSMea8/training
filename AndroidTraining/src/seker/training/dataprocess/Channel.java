@@ -16,13 +16,13 @@ import org.json.JSONObject;
  * @since 2013年11月9日
  */
 public class Channel {
-    public static String LABEL_CHANNEL = "channel";
+    public static final String LABEL_CHANNEL = "channel";
 
-    public static String LABEL_TITLE = "title";
-    public static String LABEL_LINK = "link";
-    public static String LABEL_DESCRIPTION = "description";
-    public static String LABEL_PUBDATE = "pubDate";
-    public static String LABEL_LASTBUILDDATE = "lastBuildDate";
+    public static final String LABEL_TITLE = "title";
+    public static final String LABEL_LINK = "link";
+    public static final String LABEL_DESCRIPTION = "description";
+    public static final String LABEL_PUBDATE = "pubDate";
+    public static final String LABEL_LASTBUILDDATE = "lastBuildDate";
     
     public String title;
     public String link;

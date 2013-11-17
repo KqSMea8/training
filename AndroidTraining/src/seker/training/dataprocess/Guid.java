@@ -13,11 +13,11 @@ import org.json.JSONObject;
  */
 public class Guid {
     
-    public static String LABEL_GUID = "guid";
+    public static final String LABEL_GUID = "guid";
     
-    public static String LABEL_ISPERMALINK = "isPermaLink";
+    public static final String LABEL_ISPERMALINK = "isPermaLink";
     
-    public static String LABEL_URL = "url";
+    public static final String LABEL_URL = "url";
     
     public boolean isPermaLink;
     

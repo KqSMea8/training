@@ -12,14 +12,14 @@ import org.json.JSONObject;
  * @since 2013年11月9日
  */
 public class Item {
-    public static String LABEL_JSON_ITEMS = "items";
+    public static final String LABEL_JSON_ITEMS = "items";
     
-    public static String LABEL_ITEM = "item";
+    public static final String LABEL_ITEM = "item";
 
-    public static String LABEL_TITLE = "title";
-    public static String LABEL_LINK = "link";
-    public static String LABEL_DESCRIPTION = "description";
-    public static String LABEL_PUBDATE = "pubDate";
+    public static final String LABEL_TITLE = "title";
+    public static final String LABEL_LINK = "link";
+    public static final String LABEL_DESCRIPTION = "description";
+    public static final String LABEL_PUBDATE = "pubDate";
 
     public String title;
     public String link;
