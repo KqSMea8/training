@@ -7,7 +7,7 @@ import seker.training.dataprocess.Channel;
 
 import com.google.gson.Gson;
 
-class GsonParser {
+public class GsonParser {
     
     public Channel parse(InputStream is) {
         String json = StreamUtils.streamToString(is);

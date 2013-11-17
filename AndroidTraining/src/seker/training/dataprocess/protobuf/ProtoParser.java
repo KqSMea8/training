@@ -5,7 +5,7 @@ import java.io.InputStream;
 
 import seker.training.dataprocess.protobuf.ChannelProto.Channel;
 
-class ProtoParser {
+public class ProtoParser {
     
     public Channel parse(InputStream is) {
         Channel channel = null;

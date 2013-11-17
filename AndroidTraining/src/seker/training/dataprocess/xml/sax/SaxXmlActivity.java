@@ -3,7 +3,6 @@
  */
 package seker.training.dataprocess.xml.sax;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -11,8 +10,6 @@ import seker.common.BaseActivity;
 import seker.training.TrainingApplication;
 import seker.training.dataprocess.Channel;
 import seker.training.dataprocess.ChannelAdapter;
-import seker.training.dataprocess.Item;
-import seker.training.dataprocess.protobuf.ChannelProto;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
@@ -26,7 +23,7 @@ public class SaxXmlActivity extends BaseActivity {
     
     public static final String TAG = "sax.xml";
     
-    public static final boolean LOG = TrainingApplication.GLOBAL_LOG & true;
+    public static final boolean LOG = TrainingApplication.GLOBAL_LOG & false;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {

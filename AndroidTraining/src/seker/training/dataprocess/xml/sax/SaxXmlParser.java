@@ -19,7 +19,7 @@ import seker.training.dataprocess.Channel;
  * @author seker
  * @since 2013年11月9日
  */
-class SaxXmlParser {
+public class SaxXmlParser {
     /**
      * 
      * @param is
@@ -30,8 +30,10 @@ class SaxXmlParser {
         
         SAXParser parser = null;
         try {
+            
+            SAXParserFactory factoty = SAXParserFactory.newInstance();
             //构建SAXParser
-            parser = SAXParserFactory.newInstance().newSAXParser();
+            parser = factoty.newSAXParser();
             //实例化  DefaultHandler对象
             SaxXmlParseHandler handler = new SaxXmlParseHandler();
             //调用parse()方法

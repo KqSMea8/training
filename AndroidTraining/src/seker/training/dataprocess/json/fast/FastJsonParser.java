@@ -7,7 +7,7 @@ import seker.training.dataprocess.Channel;
 
 import com.alibaba.fastjson.JSON;
 
-class FastJsonParser {
+public class FastJsonParser {
     
     public Channel parse(InputStream is) {
         String json = StreamUtils.streamToString(is);

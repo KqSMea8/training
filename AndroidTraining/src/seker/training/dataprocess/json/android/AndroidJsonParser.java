@@ -11,7 +11,7 @@ import seker.training.dataprocess.Channel;
 import seker.training.dataprocess.Guid;
 import seker.training.dataprocess.Item;
 
-class AndroidJsonParser {
+public class AndroidJsonParser {
     
     public Channel parse(InputStream is) {
         Channel channel = null;
@@ -25,14 +25,14 @@ class AndroidJsonParser {
         return channel;
     }
     
-    public Channel parseChannel(JSONObject json) throws JSONException {
+    private Channel parseChannel(JSONObject json) throws JSONException {
         Channel channel = new Channel();
         channel.title = json.optString(Channel.LABEL_TITLE);
         channel.link = json.optString(Channel.LABEL_LINK);
         channel.description = json.optString(Channel.LABEL_DESCRIPTION);
         channel.pubDate = json.optString(Channel.LABEL_PUBDATE);
         channel.lastBuildDate = json.optString(Channel.LABEL_LASTBUILDDATE);
-        JSONArray jsons = json.getJSONArray(Item.LABEL_JSON_ITEMS);
+        JSONArray jsons = json.optJSONArray(Item.LABEL_JSON_ITEMS);
         for (int i = 0, n = jsons.length(); i < n; i++) {
             Item item = parseItem(jsons.getJSONObject(i));
             channel.items.add(item);
@@ -40,7 +40,7 @@ class AndroidJsonParser {
         return channel;
     }
     
-    public Item parseItem(JSONObject json) throws JSONException {
+    private Item parseItem(JSONObject json) throws JSONException {
         Item item = new Item();
         item.title = json.optString(Item.LABEL_TITLE);
         item.link = json.optString(Item.LABEL_LINK);

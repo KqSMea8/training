@@ -24,7 +24,7 @@ import seker.training.dataprocess.Item;
  * @author seker
  * @since 2013年11月9日
  */
-class DomXmlParser {
+public class DomXmlParser {
     /**
      * 
      * @param is
