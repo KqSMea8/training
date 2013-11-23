@@ -22,6 +22,7 @@ public class SimpleRequestActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        new Thread(new UrlRequestRunnable()).start();
+        // new Thread(new UrlRequestRunnable()).start();
+        new Thread(new HttpRequestRunnable()).start();
     }
 }

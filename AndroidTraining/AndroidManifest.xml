@@ -82,7 +82,7 @@
                 <category android:name="android.intent.category.SAMPLE_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".net.VolleyActivity" android:label="@string/net_volley">
+        <activity android:name=".net.volley.VolleyActivity" android:label="@string/net_volley">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.SAMPLE_CODE" />

@@ -3,7 +3,19 @@
  */
 package seker.training.net.volley;
 
+
 import seker.common.BaseActivity;
+import seker.common.BaseApplication;
+import android.os.Bundle;
+
+import com.android.volley.Request.Method;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.Response.Listener;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.baidu.android.common.logging.Log;
 
 /**
  * 
@@ -11,5 +23,39 @@ import seker.common.BaseActivity;
  * @since 2013年11月22日
  */
 public class VolleyActivity extends BaseActivity {
-
+    public static final String TAG = "net_simple";
+    
+    public static final boolean LOG = BaseApplication.GLOBAL_LOG & true;
+    
+    private RequestQueue mRequestQueue;
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        mRequestQueue = Volley.newRequestQueue(getApplicationContext());
+        String url = "http://www.baidu.com";
+        StringRequest request = new StringRequest(Method.GET, url, new Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (LOG) {
+                    Log.d(TAG, response);
+                }
+            }
+        }, new ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if (LOG) {
+                    Log.d(TAG, error.toString());
+                }
+            }
+        });
+        mRequestQueue.add(request);
+    }
+    
+    @Override
+    protected void onStop() {
+        mRequestQueue.stop();
+        super.onStop();
+    }
 }
