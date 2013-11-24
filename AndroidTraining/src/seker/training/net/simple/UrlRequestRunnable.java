@@ -28,8 +28,17 @@ public class UrlRequestRunnable implements Runnable {
     @Override
     public void run() {
         try {
-            URL url = new URL("http://www.baidu.com");
+            URL url = new URL("http://news.163.com/special/00011K6L/rss_newstop.xml");
             HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
+            
+            urlConn.setRequestMethod("GET/POST/PUT");
+            urlConn.setIfModifiedSince(87665);
+            urlConn.setConnectTimeout(45214);
+            urlConn.setReadTimeout(4321);
+            urlConn.setRequestProperty("", "");
+            urlConn.setRequestProperty("", "");
+            urlConn.setRequestProperty("", "");
+            urlConn.setRequestProperty("", "");
             
             //设置输入和输出流  s
             urlConn.setDoOutput(true);  

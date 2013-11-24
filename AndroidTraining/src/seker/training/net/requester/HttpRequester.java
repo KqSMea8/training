@@ -39,7 +39,7 @@ import com.baidu.android.common.logging.Log;
 import com.baidu.android.common.net.ProxyHttpClient;
 
 /**
- * 封装ProxyHttpClient类，该类的核心接口requestAsync()的主要功能为：
+ * 封装DefaultHttpClient类，该类的核心接口requestAsync()的主要功能为：
  * 1、异步化网络请求：requestAsync()方法体内，将启动一个子线程来发起网络请求。 
  * 2、接口参数化，以实现不同HTTP请求的扩展性。 
  * 3、解除
@@ -101,7 +101,7 @@ public class HttpRequester<R> {
     }
     
     /**
-     * 网络是否可用。(
+     * 网络是否可用。
      * 
      * @param context
      *            context

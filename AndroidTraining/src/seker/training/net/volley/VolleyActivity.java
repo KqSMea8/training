@@ -6,6 +6,7 @@ package seker.training.net.volley;
 
 import seker.common.BaseActivity;
 import seker.common.BaseApplication;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import com.android.volley.Request.Method;
@@ -13,6 +14,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.ImageLoader.ImageCache;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.baidu.android.common.logging.Log;
@@ -29,11 +32,25 @@ public class VolleyActivity extends BaseActivity {
     
     private RequestQueue mRequestQueue;
     
+    private ImageLoader mImageLoader;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
         mRequestQueue = Volley.newRequestQueue(getApplicationContext());
+        
+        mImageLoader = new ImageLoader(mRequestQueue, new ImageCache() {
+            @Override
+            public Bitmap getBitmap(String arg0) {
+                return null;
+            }
+
+            @Override
+            public void putBitmap(String arg0, Bitmap arg1) {
+            }
+        });
+        
         String url = "http://www.baidu.com";
         StringRequest request = new StringRequest(Method.GET, url, new Listener<String>() {
             @Override

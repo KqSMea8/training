@@ -3,6 +3,8 @@
  */
 package seker.training.net.simple;
 
+import java.io.UnsupportedEncodingException;
+
 import seker.common.BaseActivity;
 import seker.common.BaseApplication;
 import android.os.Bundle;
@@ -22,7 +24,7 @@ public class SimpleRequestActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        // new Thread(new UrlRequestRunnable()).start();
-        new Thread(new HttpRequestRunnable()).start();
+        new Thread(new UrlRequestRunnable()).start();
+        // new Thread(new HttpRequestRunnable()).start();
     }
 }
