@@ -6,6 +6,7 @@ package seker.training.dataprocess;
 import java.io.IOException;
 import java.io.InputStream;
 
+import seker.common.speed.TimeLogger;
 import seker.common.utils.StreamUtils;
 import seker.training.dataprocess.json.android.AndroidJsonParser;
 import seker.training.dataprocess.json.fast.FastJsonParser;
@@ -15,6 +16,7 @@ import seker.training.dataprocess.xml.dom.DomXmlParser;
 import seker.training.dataprocess.xml.pull.PullXmlParser;
 import seker.training.dataprocess.xml.sax.SaxXmlParser;
 import android.content.Context;
+import android.os.Environment;
 import android.util.Log;
 
 /**
@@ -24,6 +26,14 @@ import android.util.Log;
  */
 public class ProcessCompare implements Runnable {
     
+    private static final String DATA_DATA_XML = "data/data.xml";
+
+    private static final String DATA_DATA_JSON = "data/data.json";
+
+    private static final String DATA_DATA_PB = "data/data.pb";
+
+    public static final String TAG = "parser";
+    
     private Context mContext;
     
     public ProcessCompare(Context context) {
@@ -32,99 +42,124 @@ public class ProcessCompare implements Runnable {
     
     @Override
     public void run() {
-        
         final int N = 100;
-        
         try {
+            final String model = "dom_xml";
             long start = System.currentTimeMillis();
+            TimeLogger.record(TAG, model, String.valueOf(0));
             for (int i = 0; i < N; i ++) {
-                InputStream is = mContext.getAssets().open("data/data.xml");
+                InputStream is = mContext.getAssets().open(DATA_DATA_XML);
                 new DomXmlParser().parse(is);
                 StreamUtils.closeSafely(is);
+                TimeLogger.record(TAG, model, String.valueOf(i + 1));
             }
             long end = System.currentTimeMillis();
-            Log.e("test", "Dom xml: cost " + (end - start) + "ms.");
+            Log.e(TAG, "Dom xml: cost " + (end - start) + "ms.");
         } catch (IOException e) {
             e.printStackTrace();
         }
         
         try {
+            final String model = "pull_xml";
             long start = System.currentTimeMillis();
+            TimeLogger.record(TAG, model, String.valueOf(0));
             for (int i = 0; i < N; i ++) {
-                InputStream is = mContext.getAssets().open("data/data.xml");
+                InputStream is = mContext.getAssets().open(DATA_DATA_XML);
                 new PullXmlParser().parse(is);
                 StreamUtils.closeSafely(is);
+                TimeLogger.record(TAG, model, String.valueOf(i + 1));
             }
             long end = System.currentTimeMillis();
-            Log.e("test", "Pull xml: cost " + (end - start) + "ms.");
+            Log.e(TAG, "Pull xml: cost " + (end - start) + "ms.");
         } catch (IOException e) {
             e.printStackTrace();
         }
         
         try {
+            final String model = "sax_xml";
             long start = System.currentTimeMillis();
+            TimeLogger.record(TAG, model, String.valueOf(0));
             for (int i = 0; i < N; i ++) {
-                InputStream is = mContext.getAssets().open("data/data.xml");
+                InputStream is = mContext.getAssets().open(DATA_DATA_XML);
                 new SaxXmlParser().parse(is);
                 StreamUtils.closeSafely(is);
+                TimeLogger.record(TAG, model, String.valueOf(i + 1));
             }
             long end = System.currentTimeMillis();
-            Log.e("test", "SAX xml: cost " + (end - start) + "ms.");
+            Log.e(TAG, "SAX xml: cost " + (end - start) + "ms.");
         } catch (IOException e) {
             e.printStackTrace();
         }
         
         try {
             
+            final String model = "android_json";
             long start = System.currentTimeMillis();
+            TimeLogger.record(TAG, model, String.valueOf(0));
             for (int i = 0; i < N; i ++) {
-                InputStream is = mContext.getAssets().open("data/data.json");
+                InputStream is = mContext.getAssets().open(DATA_DATA_JSON);
                 new AndroidJsonParser().parse(is);
                 StreamUtils.closeSafely(is);
+                TimeLogger.record(TAG, model, String.valueOf(i + 1));
             }
             long end = System.currentTimeMillis();
-            Log.e("test", "Android Json: cost " + (end - start) + "ms.");
+            Log.e(TAG, "Android Json: cost " + (end - start) + "ms.");
         } catch (IOException e) {
             e.printStackTrace();
         }
         
         try {
+            final String model = "google_json";
             long start = System.currentTimeMillis();
+            TimeLogger.record(TAG, model, String.valueOf(0));
             for (int i = 0; i < N; i ++) {
-                InputStream is = mContext.getAssets().open("data/data.json");
+                InputStream is = mContext.getAssets().open(DATA_DATA_JSON);
                 new GsonParser().parse(is);
                 StreamUtils.closeSafely(is);
+                TimeLogger.record(TAG, model, String.valueOf(i + 1));
             }
             long end = System.currentTimeMillis();
-            Log.e("test", "Gson: cost " + (end - start) + "ms.");
+            Log.e(TAG, "Gson: cost " + (end - start) + "ms.");
         } catch (IOException e) {
             e.printStackTrace();
         }
         
         try {
+            final String model = "fast_json";
             long start = System.currentTimeMillis();
+            TimeLogger.record(TAG, model, String.valueOf(0));
             for (int i = 0; i < N; i ++) {
-                InputStream is = mContext.getAssets().open("data/data.json");
+                InputStream is = mContext.getAssets().open(DATA_DATA_JSON);
                 new FastJsonParser().parse(is);
                 StreamUtils.closeSafely(is);
+                TimeLogger.record(TAG, model, String.valueOf(i + 1));
             }
             long end = System.currentTimeMillis();
-            Log.e("test", "Fast Json: cost " + (end - start) + "ms.");
+            Log.e(TAG, "Fast Json: cost " + (end - start) + "ms.");
         } catch (IOException e) {
             e.printStackTrace();
         }
         
         try {
+            final String model = "proto_buffer";
             long start = System.currentTimeMillis();
+            TimeLogger.record(TAG, model, String.valueOf(0));
             for (int i = 0; i < N; i ++) {
-                InputStream is = mContext.getAssets().open("data/data.pb");
+                InputStream is = mContext.getAssets().open(DATA_DATA_PB);
                 new ProtoParser().parse(is);
                 StreamUtils.closeSafely(is);
+                TimeLogger.record(TAG, model, String.valueOf(i + 1));
             }
             long end = System.currentTimeMillis();
-            Log.e("test", "Proto Buffer: cost " + (end - start) + "ms.");
+            Log.e(TAG, "Proto Buffer: cost " + (end - start) + "ms.");
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                TimeLogger.export(TAG, Environment.getExternalStorageDirectory().getPath(), "parse.csv");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
