@@ -4,6 +4,7 @@
 package seker.training;
 
 import seker.common.BaseApplication;
+import seker.training.dataprocess.ProcessCompare;
 import android.content.Context;
 import android.content.res.Configuration;
 
@@ -17,6 +18,7 @@ public class TrainingApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        new Thread(new ProcessCompare(getApplicationContext())).start();
     }
     
     @Override
