@@ -4,7 +4,9 @@ import seker.common.BaseActivity;
 import seker.common.utils.LogUtils;
 import seker.training.R;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,11 +37,24 @@ public class LiteBrowser extends BaseActivity {
     private ImageView mRefresh;
     private ImageView mStop;
     
+    private EditText mAddress;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        setContentView(R.layout.litebrowser);
+        Intent intent = getIntent();
+        if (null != intent) {
+            setContentView(R.layout.litebrowser);
+            initWebView();
+            Uri uri = intent.getData();
+            mWebView.loadUrl(uri.toString());
+        } else {
+            finish();
+        }
+    }
+
+    private void initWebView() {
         findViewById(R.id.back).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +72,8 @@ public class LiteBrowser extends BaseActivity {
                 }
             }
         });
+        
+        mAddress = (EditText) findViewById(R.id.address);
         
         mForword = (ImageView) findViewById(R.id.forward);
         mForword.setOnClickListener(new OnClickListener() {
@@ -96,6 +114,8 @@ public class LiteBrowser extends BaseActivity {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(mWebView, url, favicon);
+                mAddress.setText(url);
+                // mAddress.setSelection(url.length());
                 if (LOG) {
                     Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()) + ", url=" + url);
                 }
@@ -113,6 +133,17 @@ public class LiteBrowser extends BaseActivity {
                 if (LOG) {
                     Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()) + ", url=" + url);
                 }
+                if (mWebView.canGoBack()) {
+                    mBackword.setClickable(true);
+                } else {
+                    mBackword.setClickable(false);
+                }
+                if (mWebView.canGoForward()) {
+                    mForword.setClickable(true);
+                } else {
+                    mForword.setClickable(false);
+                }
+                
                 super.onPageFinished(mWebView, url);
             }
             @Override
@@ -170,8 +201,6 @@ public class LiteBrowser extends BaseActivity {
             }
             
         });
-        
-        mWebView.loadUrl("http://www.sohu.com/");
     }
 
 }

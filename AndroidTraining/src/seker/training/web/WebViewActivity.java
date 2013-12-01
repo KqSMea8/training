@@ -4,9 +4,13 @@ import seker.common.BaseActivity;
 import seker.common.utils.LogUtils;
 import seker.training.R;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -26,6 +30,16 @@ public class WebViewActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.webview_demo);
+        findViewById(R.id.button).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("http://www.baidu.com");  
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri); 
+                intent.setPackage(getPackageName());
+                startActivity(intent);
+            }
+        });
+        
         final WebView webview = (WebView) findViewById(R.id.webview);
         
 //        String summary = "dimly<body>You scored <b>192</b> points.</body></html>";

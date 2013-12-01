@@ -4,7 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <Button 
+        android:id="@+id/button"
+        android:background="@android:color/white"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        />
     <WebView
+        android:visibility="invisible"
         android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
