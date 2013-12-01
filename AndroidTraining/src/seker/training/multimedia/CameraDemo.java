@@ -1,11 +1,14 @@
 package seker.training.multimedia;
 
 import java.io.IOException;
+import java.util.List;
 
 import seker.common.BaseActivity;
 import seker.common.utils.LogUtils;
 import seker.training.R;
 import android.hardware.Camera;
+import android.hardware.Camera.Parameters;
+import android.hardware.Camera.Size;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.SurfaceHolder;
@@ -38,6 +41,9 @@ public class CameraDemo extends BaseActivity {
                     e.printStackTrace();
                 }
                 mCamera.startPreview();
+                mCamera.autoFocus(new MyAutoFocusCallback(mCamera));
+                mCamera.setOneShotPreviewCallback(new MyOneShotPreviewCallback());
+//                mCamera.setPreviewCallback(cb);
             }
             @Override
             public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
@@ -58,6 +64,11 @@ public class CameraDemo extends BaseActivity {
     protected void onResume() {
         super.onResume();
         mCamera = Camera.open();
+        
+        Parameters params = mCamera.getParameters();
+        List<Size> sizes = params.getSupportedPreviewSizes();
+        mCamera.setParameters(params);
+        
         mCamera.setDisplayOrientation(90);
     }
     
