@@ -18,7 +18,7 @@ public class TrainingApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        new Thread(new ProcessCompare(getApplicationContext())).start();
+        // new Thread(new ProcessCompare(getApplicationContext())).start();
     }
     
     @Override

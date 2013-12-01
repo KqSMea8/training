@@ -16,4 +16,8 @@
     <string name="net_simple">net/simple</string>
     <string name="net_requester">net/requester</string>
     <string name="net_volley">net/volley</string>
+    
+    <!-- WebView -->
+    <string name="web_demo">web/webview demo</string>
+    <string name="web_litebrowser">web/lite browser</string>
 </resources>

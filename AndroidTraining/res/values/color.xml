@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="title_bg">#333333</color>
+    
+    <color name="back_txt">#AAAAAA</color>
+    <color name="title_txt">#AAAAAA</color>
+    
+</resources>
