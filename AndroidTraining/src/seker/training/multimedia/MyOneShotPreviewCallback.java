@@ -12,12 +12,12 @@ public class MyOneShotPreviewCallback implements PreviewCallback {
     
     @Override
     public void onPreviewFrame(byte[] data, Camera camera) {
-        String result = Decoder.getInstance().decode(data);
-        if (null == result) {
-            camera.setOneShotPreviewCallback(this);
-        } else {
-            
-        }
+//        String result = Decoder.getInstance().decode(data);
+//        if (null == result) {
+//            camera.setOneShotPreviewCallback(this);
+//        } else {
+//            
+//        }
     }
 
 }

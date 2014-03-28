@@ -18,8 +18,8 @@
     <string name="net_volley">net/volley</string>
     
     <!-- WebView -->
-    <string name="web_demo">web/webview demo</string>
-    <string name="web_litebrowser">web/lite browser</string>
+    <string name="web_demo">ui/web/webview demo</string>
+    <string name="web_litebrowser">ui/web/lite browser</string>
     
     <!-- 多媒体 -->
     <string name="multimedia_camera">multimedia/camera demo</string>

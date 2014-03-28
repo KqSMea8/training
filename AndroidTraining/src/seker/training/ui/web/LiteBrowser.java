@@ -1,4 +1,4 @@
-package seker.training.web;
+package seker.training.ui.web;
 
 import seker.common.BaseActivity;
 import seker.common.utils.LogUtils;
@@ -28,6 +28,8 @@ import android.widget.TextView;
 @SuppressLint("SetJavaScriptEnabled")
 public class LiteBrowser extends BaseActivity {
     
+    private static final String SINA = "http://www.sina.com.cn";
+
     private WebView mWebView; 
     
     private TextView mTitleTxtView;
@@ -48,9 +50,13 @@ public class LiteBrowser extends BaseActivity {
             setContentView(R.layout.litebrowser);
             initWebView();
             Uri uri = intent.getData();
-            mWebView.loadUrl(uri.toString());
+            if (null == uri) {
+                mWebView.loadUrl(SINA);
+            } else {
+                mWebView.loadUrl(uri.toString());
+            }
         } else {
-            finish();
+            mWebView.loadUrl(SINA);
         }
     }
 
@@ -199,8 +205,6 @@ public class LiteBrowser extends BaseActivity {
                     super.onReceivedIcon(view, icon);
                 }
             }
-            
         });
     }
-
 }
