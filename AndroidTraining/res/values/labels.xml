@@ -23,4 +23,7 @@
     
     <!-- 多媒体 -->
     <string name="multimedia_camera">multimedia/camera demo</string>
+    
+    <!-- framework -->
+    <string name="framework_activitythread">framework/ActivityThread</string>
 </resources>

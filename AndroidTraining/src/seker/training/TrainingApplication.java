@@ -13,6 +13,7 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * 
@@ -20,10 +21,13 @@ import android.util.Log;
  * @since 2013年11月9日
  */
 public class TrainingApplication extends BaseApplication {
+    /**
+     * Activity Lifecycle Callbacks
+     */
+    private ActivityLifecycleCallbacks mActivityLifecycleCallbacks;
     
-    ActivityLifecycleCallbacks callbacks;
     HashMap<String, WeakReference<Activity>> activityMap;
-//    private static final String TAG = "TestApp";
+    private static final String TAG = "TestApp";
     
     @Override
     public void onCreate() {
@@ -31,12 +35,16 @@ public class TrainingApplication extends BaseApplication {
         // new Thread(new ProcessCompare(getApplicationContext())).start();
         // new Thread(new MemoryTest(getApplicationContext())).start();
         
+        registerActivityCallbacks();
+    }
 
+    void registerActivityCallbacks() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             activityMap = new HashMap<String, WeakReference<Activity>>();
-            callbacks = new ActivityLifecycleCallbacks() {
+            mActivityLifecycleCallbacks = new ActivityLifecycleCallbacks() {
                 @Override
                 public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+                    // Toast.makeText(activity, "", Toast.LENGTH_SHORT).show();
                     String name = activity.getClass().getSimpleName();
                     if (LOG) {
                         Log.d(TAG, "ActivityLifecycleCallbacks.onActivityCreated(activity=" + name + ")");
@@ -88,7 +96,7 @@ public class TrainingApplication extends BaseApplication {
                 }
             };
             
-            registerActivityLifecycleCallbacks(callbacks);
+            registerActivityLifecycleCallbacks(mActivityLifecycleCallbacks);
         }
     }
     
@@ -116,8 +124,12 @@ public class TrainingApplication extends BaseApplication {
     public void onTerminate() {
         super.onTerminate();
         
+        unregisterActivityCallbacks();
+    }
+
+    void unregisterActivityCallbacks() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            unregisterActivityLifecycleCallbacks(callbacks);
+            unregisterActivityLifecycleCallbacks(mActivityLifecycleCallbacks);
         }
     }
 }
