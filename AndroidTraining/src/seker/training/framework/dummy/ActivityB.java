@@ -1,45 +1,43 @@
 /*
  * Copyright (C) 2014 XXX Inc. All rights reserved.
  */
-package seker.training.framework;
+package seker.training.framework.dummy;
 
-import java.lang.reflect.Field;
-import java.util.Collection;
-import java.util.HashMap;
-
-import seker.common.BaseActivity;
-import seker.training.framework.dummy.ActivityA;
-import seker.training.framework.dummy.ActivityB;
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import seker.common.BaseActivity;
+import seker.common.utils.ActivityUtils;
+import android.os.Process;
 
 /**
  * @author xinjian.lxj
- * 
+ *
  */
-public class ActivityThreadTest extends BaseActivity {
-
-    public static final String TAG = "ActivityThreadTest";
-
+public class ActivityB extends BaseActivity {
+    
+    public ActivityB() {
+        super();
+        Log.e(TAG, "ActivityB()");
+    }
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        
         Button button = new Button(this);
         button.setText("Click Me");
         setContentView(button);
         button.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                ActivityUtils.finishAllActivies(ActivityB.this);
+                Process.killProcess(Process.myPid());
+                System.exit(10);
             }
         });
-        
-        startActivity(new Intent(this, ActivityA.class));
-        startActivity(new Intent(this, ActivityB.class));
     }
+
 }

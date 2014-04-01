@@ -26,4 +26,6 @@
     
     <!-- framework -->
     <string name="framework_activitythread">framework/ActivityThread</string>
+    <string name="framework_activity_a">framework/Activity A</string>
+    <string name="framework_activity_b">framework/Activity B</string>
 </resources>
