@@ -36,6 +36,8 @@ public class ActivityB extends BaseActivity {
                 ActivityUtils.finishAllActivies(ActivityB.this);
                 Process.killProcess(Process.myPid());
                 System.exit(10);
+                
+//                ActivityUtils.quitAppliation(ActivityB.this);
             }
         });
     }

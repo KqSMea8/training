@@ -20,6 +20,7 @@
     <!-- WebView -->
     <string name="web_demo">ui/web/webview demo</string>
     <string name="web_litebrowser">ui/web/lite browser</string>
+    <string name="adapterview_listview">ui/AdapterView/ListView</string>
     
     <!-- 多媒体 -->
     <string name="multimedia_camera">multimedia/camera demo</string>

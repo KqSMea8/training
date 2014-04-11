@@ -112,6 +112,13 @@
                 <data android:scheme="https" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.adapterview.ListViewActivity" android:label="@string/adapterview_listview">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        
         <activity android:name=".multimedia.CameraDemo" android:label="@string/multimedia_camera">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

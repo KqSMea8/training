@@ -3,17 +3,12 @@
  */
 package seker.training.framework;
 
-import java.lang.reflect.Field;
-import java.util.Collection;
-import java.util.HashMap;
-
 import seker.common.BaseActivity;
+import seker.common.utils.ExceptionUtils;
 import seker.training.framework.dummy.ActivityA;
 import seker.training.framework.dummy.ActivityB;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -29,6 +24,9 @@ public class ActivityThreadTest extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        // ExceptionUtils.crash();
+        ExceptionUtils.anr();
 
         Button button = new Button(this);
         button.setText("Click Me");
