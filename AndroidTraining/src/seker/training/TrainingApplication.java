@@ -7,13 +7,13 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 
 import seker.common.BaseApplication;
+import seker.training.reflect.Log.LogTest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 /**
  * 
@@ -32,8 +32,9 @@ public class TrainingApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        // new Thread(new ProcessCompare(getApplicationContext())).start();
+        new Thread(new seker.training.dataprocess.ProcessCompare(getApplicationContext())).start();
         // new Thread(new MemoryTest(getApplicationContext())).start();
+        new Thread(new LogTest()).start();
         
         registerActivityCallbacks();
     }
