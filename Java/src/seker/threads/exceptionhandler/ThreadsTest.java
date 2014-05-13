@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2014 XXX Inc. All rights reserved.
  */
-package seker.threads;
+package seker.threads.exceptionhandler;
 
 /**
  * @author xinjian.lxj
