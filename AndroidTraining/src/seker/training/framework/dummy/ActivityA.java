@@ -21,6 +21,22 @@ public class ActivityA extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
+        Intent intent = getIntent();
+        
+        Bundle mExtras = intent.getBundleExtra("mExtras");
+        if (mExtras != null) {
+            intent.replaceExtras(mExtras);
+        }
+        
+        boolean b = intent.getBooleanExtra("boolean", false);
+        Log.i("seker", "boolean=" + b);
+        
+        int i = intent.getIntExtra("int", 20002);
+        Log.i("seker", "int=" + i);
+        
+        String s = intent.getStringExtra("string");
+        Log.i("seker", "string=" + s);
+        
         // startActivity(new Intent(this, ActivityB.class));
     }
 }

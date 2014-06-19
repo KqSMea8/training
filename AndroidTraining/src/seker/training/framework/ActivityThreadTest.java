@@ -34,10 +34,22 @@ public class ActivityThreadTest extends BaseActivity {
         button.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(ActivityThreadTest.this, ActivityA.class);
+                
+                intent.putExtra("boolean", true);
+                intent.putExtra("int", 20001);
+                intent.putExtra("string", "value");
+                
+                Bundle bundle = intent.getExtras();
+                intent.replaceExtras(new Bundle());
+                intent.putExtra("mExtras", bundle);
+                
+                startActivity(intent);
+                
             }
         });
         
-        startActivity(new Intent(this, ActivityA.class));
-        startActivity(new Intent(this, ActivityB.class));
+        // startActivity(new Intent(this, ActivityA.class));
+        // startActivity(new Intent(this, ActivityB.class));
     }
 }

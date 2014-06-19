@@ -33,4 +33,7 @@
     <!-- Exception -->
     <string name="exception_anrdemo">exception/ANRDemo</string>
     
+    <!-- Threads -->
+    <string name="exception_threads">threads/AsyncTaskTest</string>
+    
 </resources>
