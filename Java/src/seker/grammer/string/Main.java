@@ -8,6 +8,11 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) {
+        String aa = "mobile-framework-framework";
+        String[] aaa = aa.split("\\|");
+        
+        System.out.println("Yes".equalsIgnoreCase(null));
+        
         WeakReference<String> wr = new WeakReference<String>((String) null);
         System.out.println(wr.get());
         

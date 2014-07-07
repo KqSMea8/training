@@ -5,6 +5,17 @@ package seker.training;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 
 import seker.common.BaseApplication;
 import android.app.Activity;
@@ -31,11 +42,67 @@ public class TrainingApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        
+        Map<String, String> map = new ConcurrentHashMap<String, String>();
+//        map.put("1111", "1111");
+//        map.put("2222", "2222");
+//        map.put("3333", "3333");
+//        map.put("4444", "4444");
+//        map.put("5555", "5555");
+        
+        Set<String> set = null;//map.keySet();
+        String json = JSON.toJSONString(set);
+        Log.d(TAG, json);
+        String json2 = set2Json(set);
+        Log.d(TAG, json2);
+        
+        json = "";
+        
+//        Set<String> set2 = JSON.parseObject(json, new TypeReference<Set<String>>(){});
+//        for (String str : set2) {
+//            Log.d(TAG, str);
+//        }
+        Set<String> set3 = json2Set(json);
+//        for (String str : set3) {
+//            Log.d(TAG, str);
+//        }
+        
         // new Thread(new seker.training.dataprocess.ProcessCompare(getApplicationContext())).start();
         // new Thread(new MemoryTest(getApplicationContext())).start();
         // new Thread(new LogTest()).start();
         
         registerActivityCallbacks();
+    }
+    
+    private String set2Json(Set<String> set) {
+        String strRet = "null";
+        if (null != set) {
+            JSONArray jsonArray = new JSONArray();
+            if (!set.isEmpty()) {
+                for (String str : set) {
+                    jsonArray.put(str);
+                }
+            }
+            strRet = jsonArray.toString();
+        }
+        return strRet;
+    }
+    
+    private Set<String> json2Set(String json) {
+        Set<String> setRet = null;
+        if (null != json) {
+            try {
+                JSONArray jsonArray = new JSONArray(json);
+                final int N = jsonArray.length();
+                setRet = new HashSet<String>(N);
+                for (int i = 0; i < N; i ++) {
+                    setRet.add(jsonArray.get(i).toString());
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return setRet;
     }
 
     void registerActivityCallbacks() {

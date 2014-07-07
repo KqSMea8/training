@@ -1,7 +1,6 @@
 package seker.grammer.initialize;
 
 class Parent {
-
     // 静态变量
     public static String sStaticField = "父类--静态变量";
 
