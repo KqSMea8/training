@@ -28,8 +28,6 @@ import com.baidu.android.common.logging.Log;
 public class VolleyActivity extends BaseActivity {
     public static final String TAG = "net_simple";
     
-    public static final boolean LOG = BaseApplication.GLOBAL_LOG & true;
-    
     private RequestQueue mRequestQueue;
     
     private ImageLoader mImageLoader;
@@ -55,16 +53,12 @@ public class VolleyActivity extends BaseActivity {
         StringRequest request = new StringRequest(Method.GET, url, new Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if (LOG) {
-                    Log.d(TAG, response);
-                }
+                Log.d(TAG, response);
             }
         }, new ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if (LOG) {
-                    Log.d(TAG, error.toString());
-                }
+                Log.d(TAG, error.toString());
             }
         });
         mRequestQueue.add(request);

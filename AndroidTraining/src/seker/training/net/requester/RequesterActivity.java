@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import seker.common.BaseActivity;
-import seker.common.BaseApplication;
 import seker.training.dataprocess.Channel;
 import seker.training.dataprocess.json.fast.FastJsonParser;
 import android.os.Bundle;
@@ -21,8 +20,6 @@ import android.os.Bundle;
 public class RequesterActivity extends BaseActivity {
     
     public static final String TAG = "net_simple";
-    
-    public static final boolean LOG = BaseApplication.GLOBAL_LOG & true;
     
     HttpRequester<Channel> requester = null;
 

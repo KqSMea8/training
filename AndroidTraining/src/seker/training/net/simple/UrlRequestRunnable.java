@@ -13,7 +13,6 @@ import seker.common.utils.StreamUtils;
 
 import com.baidu.android.common.logging.Log;
 
-
 /**
  * 
  * @author seker
@@ -22,8 +21,6 @@ import com.baidu.android.common.logging.Log;
 public class UrlRequestRunnable implements Runnable {
     
     public static final String TAG = SimpleRequestActivity.TAG;
-    
-    public static final boolean LOG = SimpleRequestActivity.LOG;
     
     @Override
     public void run() {
@@ -40,24 +37,22 @@ public class UrlRequestRunnable implements Runnable {
             urlConn.setRequestProperty("", "");
             urlConn.setRequestProperty("", "");
             
-            //设置输入和输出流  s
-            urlConn.setDoOutput(true);  
-            urlConn.setDoInput(true);  
-            //设置请求方式为POST  
-            urlConn.setRequestMethod("GET");  
-            //POST请求不能使用缓存  
+            // 设置输入和输出流 s
+            urlConn.setDoOutput(true);
+            urlConn.setDoInput(true);
+            // 设置请求方式为POST
+            urlConn.setRequestMethod("GET");
+            // POST请求不能使用缓存
             urlConn.setUseCaches(false);
             
             InputStream in = urlConn.getInputStream();
             String str = StreamUtils.streamToString(in);
             
-            if (LOG) {
-                Log.d(TAG, str);
-            }
+            Log.d(TAG, str);
             
             StreamUtils.closeSafely(in);
             
-            //关闭连接  
+            // 关闭连接
             urlConn.disconnect();
         } catch (MalformedURLException e1) {
             e1.printStackTrace();

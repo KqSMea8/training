@@ -31,9 +31,7 @@ public class CameraDemo extends BaseActivity {
         mHolder.addCallback(new Callback() {
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
-                if (LOG) {
-                    Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()));
-                }
+                Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()));
                 
                 try {
                     mCamera.setPreviewDisplay(mHolder);
@@ -47,15 +45,11 @@ public class CameraDemo extends BaseActivity {
             }
             @Override
             public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-                if (LOG) {
-                    Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()));
-                }
+                Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()));
             }
             @Override
             public void surfaceDestroyed(SurfaceHolder holder) {
-                if (LOG) {
-                    Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()));
-                }
+                Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()));
             }
         });
     }

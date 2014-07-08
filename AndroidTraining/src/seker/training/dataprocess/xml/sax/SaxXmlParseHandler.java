@@ -63,7 +63,7 @@ class SaxXmlParseHandler extends DefaultHandler {
             state = STATE_ITEM;
         } else if (TextUtils.equals(qName, Guid.LABEL_GUID)) {
             state = STATE_GUID;
-        }  else if (TextUtils.equals(qName, Channel.LABEL_LASTBUILDDATE)) {
+        } else if (TextUtils.equals(qName, Channel.LABEL_LASTBUILDDATE)) {
             state = STATE_CHANEL_LASTBUILDDATE;
         } else {
             if (mState < STATE_ITEM) {
@@ -94,23 +94,20 @@ class SaxXmlParseHandler extends DefaultHandler {
     @Override
     public void startDocument() throws SAXException {
         super.startDocument();
-        if (SaxXmlActivity.LOG) {
-            Log.i(SaxXmlActivity.TAG, "startDocument()");
-        }
+        Log.i(SaxXmlActivity.TAG, "startDocument()");
     }
     
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         super.startElement(uri, localName, qName, attributes);
-        if (SaxXmlActivity.LOG) {
-            StringBuilder builder = new StringBuilder();
-            builder.append("[");
-            for (int i =0, n = attributes.getLength(); i < n; i++) {
-                builder.append(attributes.getQName(i)).append("=").append(attributes.getValue(i)).append(",");
-            }
-            builder.append("]");
-            Log.i(SaxXmlActivity.TAG, String.format("startElement(uri=%s, localName=%s, qName=%s, attributes=%s)", uri, localName, qName, builder.toString()));
+        StringBuilder builder = new StringBuilder();
+        builder.append("[");
+        for (int i = 0, n = attributes.getLength(); i < n; i++) {
+            builder.append(attributes.getQName(i)).append("=").append(attributes.getValue(i)).append(",");
         }
+        builder.append("]");
+        Log.i(SaxXmlActivity.TAG, String.format("startElement(uri=%s, localName=%s, qName=%s, attributes=%s)", uri,
+                localName, qName, builder.toString()));
         
         mState = rectifyStateByQName(uri, localName, qName);
         switch (mState) {
@@ -140,9 +137,7 @@ class SaxXmlParseHandler extends DefaultHandler {
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
         String characters = buffer.toString().trim();
-        if (SaxXmlActivity.LOG) {
-            Log.i(SaxXmlActivity.TAG, String.format("characters(characters=%s)", characters));
-        }
+        Log.i(SaxXmlActivity.TAG, String.format("characters(characters=%s)", characters));
         mState = rectifyStateByQName(uri, localName, qName);
         switch (mState) {
         case STATE_CHANEL_TITLE:
@@ -180,17 +175,13 @@ class SaxXmlParseHandler extends DefaultHandler {
         }
         buffer.delete(0, buffer.length());
         
-        if (SaxXmlActivity.LOG) {
-            Log.i(SaxXmlActivity.TAG, String.format("endElement(uri=%s, localName=%s, qName=%s)", uri, localName, qName));
-        }
+        Log.i(SaxXmlActivity.TAG, String.format("endElement(uri=%s, localName=%s, qName=%s)", uri, localName, qName));
         super.endElement(uri, localName, qName);
     }
     
     @Override
     public void endDocument() throws SAXException {
-        if (SaxXmlActivity.LOG) {
-            Log.i(SaxXmlActivity.TAG, "endDocument()");
-        }
+        Log.i(SaxXmlActivity.TAG, "endDocument()");
         super.endDocument();
     }
 }

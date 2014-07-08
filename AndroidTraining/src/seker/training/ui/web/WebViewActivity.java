@@ -61,76 +61,56 @@ public class WebViewActivity extends BaseActivity {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(webview, url, favicon);
-                if (LOG) {
-                    Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()) + ", url=" + url);
-                }
+                Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()) + ", url=" + url);
             }
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if (LOG) {
-                    Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()) + ", url=" + url);
-                }
+                Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()) + ", url=" + url);
                 webview.loadUrl(url);
                 return true;
             }
             @Override
             public void onPageFinished(WebView view, String url) {
-                if (LOG) {
-                    Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()) + ", url=" + url);
-                }
+                Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()) + ", url=" + url);
                 super.onPageFinished(webview, url);
             }
             @Override
             public void onLoadResource(WebView view, String url) {
-                if (LOG) {
-                    //Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()) + ", url=" + url);
-                }
+                //Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()) + ", url=" + url);
                 super.onLoadResource(webview, url);
             }
             @Override
             public void onReceivedError(WebView view, int errorCode,
                     String description, String failingUrl) {
-                if (LOG) {
-                    Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()));
-                }
+                Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()));
                 super.onReceivedError(webview, errorCode, description, failingUrl);
             }
             @Override
             public void onScaleChanged(WebView view, float oldScale, float newScale) {
-                if (LOG) {
-                    Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()));
-                }
+                Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()));
                 super.onScaleChanged(webview, oldScale, newScale);
             }
             @Override
             public void doUpdateVisitedHistory(WebView view, String url, boolean isReload) {
-                if (LOG) {
-                    Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()) + ", url=" + url);
-                }
+                Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()) + ", url=" + url);
                 super.doUpdateVisitedHistory(webview, url, isReload);
             }
         });
         webview.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
-                if (LOG) {
-                    //Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()) + ", newProgress=" + newProgress);
-                }
+                //Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()) + ", newProgress=" + newProgress);
                 super.onProgressChanged(webview, newProgress);
             }
             @Override
             public void onReceivedTitle(WebView view, String title) {
-                if (LOG) {
-                    Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()) + ", title=" + title);
-                }
+                Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()) + ", title=" + title);
                 super.onReceivedTitle(webview, title);
             }
             @Override
             public void onReceivedIcon(WebView view, Bitmap icon) {
-                if (LOG) {
-                    Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()));
-                    super.onReceivedIcon(view, icon);
-                }
+                Log.d(TAG, LogUtils.getClassFileLineMethod(getClass().getSimpleName()));
+                super.onReceivedIcon(view, icon);
             }
             
         });

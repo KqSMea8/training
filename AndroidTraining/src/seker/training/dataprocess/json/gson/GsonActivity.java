@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import seker.common.BaseActivity;
-import seker.training.TrainingApplication;
 import seker.training.dataprocess.Channel;
 import seker.training.dataprocess.ChannelAdapter;
 import android.os.Bundle;
@@ -23,8 +22,6 @@ public class GsonActivity extends BaseActivity {
     
     public static final String TAG = "google.json";
     
-    public static final boolean LOG = TrainingApplication.GLOBAL_LOG & true;
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +29,7 @@ public class GsonActivity extends BaseActivity {
         try {
             InputStream is = getAssets().open("data/data.json");
             Channel channel = new GsonParser().parse(is);
-            if (LOG) {
-                Log.i(TAG, channel+"");
-            }
+            Log.i(TAG, channel + "");
             
             ListView listview = new ListView(this);
             ChannelAdapter adapter = new ChannelAdapter(channel);

@@ -59,8 +59,7 @@ public class HttpRequester<R> {
     /** Log的TAG */
     private static final String TAG = "HttpRequester";
     
-    /** Log开关 */
-    public static final boolean DEBUG = BaseApplication.GLOBAL_LOG & true;
+    public static final boolean DEBUG = true;
     
     /** File buffer stream size. */
     public static final int FILE_STREAM_BUFFER_SIZE = 8192;

@@ -22,8 +22,6 @@ public class ProtoActivity extends BaseActivity {
     
     public static final String TAG = "google.json";
     
-    public static final boolean LOG = TrainingApplication.GLOBAL_LOG & true;
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,9 +29,7 @@ public class ProtoActivity extends BaseActivity {
         try {
             InputStream is = getAssets().open("data/data.pb");
             Channel channel = new ProtoParser().parse(is);
-            if (LOG) {
-                Log.i(TAG, channel+"");
-            }
+            Log.i(TAG, channel + "");
             
             ListView listview = new ListView(this);
             ChannelAdapter adapter = new ChannelAdapter(channel);

@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import seker.common.BaseActivity;
-import seker.training.TrainingApplication;
 import seker.training.dataprocess.Channel;
 import seker.training.dataprocess.ChannelAdapter;
 import android.os.Bundle;
@@ -23,8 +22,6 @@ public class SaxXmlActivity extends BaseActivity {
     
     public static final String TAG = "sax.xml";
     
-    public static final boolean LOG = TrainingApplication.GLOBAL_LOG & false;
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +29,7 @@ public class SaxXmlActivity extends BaseActivity {
         try {
             InputStream is = getAssets().open("data/data.xml");
             Channel channel = new SaxXmlParser().parse(is);
-            if (LOG) {
-                Log.i(TAG, channel+"");
-            }
+            Log.i(TAG, channel+"");
             
 //            try {
 //                String json = channel.toJson().toString();

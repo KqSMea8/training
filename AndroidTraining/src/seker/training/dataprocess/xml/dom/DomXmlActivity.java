@@ -23,8 +23,6 @@ public class DomXmlActivity extends BaseActivity {
     
     public static final String TAG = "dom.xml";
     
-    public static final boolean LOG = TrainingApplication.GLOBAL_LOG & true;
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +30,7 @@ public class DomXmlActivity extends BaseActivity {
         try {
             InputStream is = getAssets().open("data/data.xml");
             Channel channel = new DomXmlParser().parse(is);
-            if (LOG) {
-                Log.i(TAG, channel+"");
-            }
+            Log.i(TAG, channel + "");
             
             ListView listview = new ListView(this);
             ChannelAdapter adapter = new ChannelAdapter(channel);
