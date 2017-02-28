@@ -2,6 +2,11 @@ package seker.algorithm.sort.other;
 
 import seker.algorithm.sort.ISort;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 计数排序
  *
@@ -11,7 +16,7 @@ public class CountSort implements ISort {
     
     @Override
     public int[] sort(int[] data) {
-        return countSort(data);
+        return countSort2(data);
     }
     
     private int[] countSort(int[] data) {
@@ -27,6 +32,31 @@ public class CountSort implements ISort {
         for (int i = 0; i <= n; i++) {
             while (temp[i]-- > 0) {
                 data[z++] = i;
+            }
+        }
+        return data;
+    }
+    
+    private int[] countSort0(int[] data) {
+        final int n = data.length;
+        HashMap<Integer, Integer> temp = new HashMap<Integer, Integer>();
+        
+        for (int d : data) {
+            Integer count = temp.get(d);
+            if (null == count) {
+                count = 0;
+            }
+            count += 1;
+            temp.put(d, count);
+        }
+        
+        int index = 0;
+        ArrayList<Integer> keys = new ArrayList<Integer>(temp.keySet());
+        Collections.sort(keys);
+        for (Integer key : keys) {
+            int count = temp.get(key);
+            for (int i = 0; i < count; i ++) {
+                data[index++] = key;
             }
         }
         return data;
