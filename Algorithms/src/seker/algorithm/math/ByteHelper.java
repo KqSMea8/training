@@ -311,7 +311,7 @@ public final class ByteHelper {
             } else if (tb > 0) {
                 return tb + DOT + gb + UNITS.TB.name();
             } else if (gb > 0) {
-                return gb + DOT + gb + UNITS.GB.name();
+                return gb + DOT + mb + UNITS.GB.name();
             } else if (mb > 0) {
                 return mb + DOT + kb + UNITS.MB.name();
             } else if (kb > 0) {
