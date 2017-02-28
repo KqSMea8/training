@@ -61,7 +61,7 @@ public class HeapSort implements ISort {
         // build heap.
         for (int i = n / 2 - 1; i >= 0; i--) {
             // adjust heap.
-            heappass(data, i, n);
+            heapPass(data, i, n);
         }
         
         for (int i = n - 1; i > 0; i--) {
@@ -70,18 +70,18 @@ public class HeapSort implements ISort {
             data[0] = temp;
             
             // adjust heap.
-            heappass(data, 0, i);
+            heapPass(data, 0, i);
         }
         return data;
     }
     
     /**
      * 
-     * @param data
+     * @param data  data
      * @param i     the index of root node [0, 1, 2..., n/2-1]
      * @param n     [i, i+1, i+2,..., n-1] is not sorted.
      */
-    public void heappass(int[] data, int i, int n) {
+    private void heapPass(int[] data, int i, int n) {
         int temp = data[i];
         int j = 2 * i + 1;                          // data[j] is the left child.
         

@@ -33,19 +33,19 @@ public class SelectSort implements ISort {
     public int[] sort(int[] data) {
         int temp;
                 
-        for (int i = 0, k, n = data.length; i < n; i++) {
-            k = i;
+        for (int i = 0, index, n = data.length; i < n; i++) {
+            index = i;
             
             for (int j = i + 1; j < n; j++) {   // Find the smallest item.
-                if (data[j] < data[k]) {
-                    k = j;
+                if (data[j] < data[index]) {
+                    index = j;
                 }
             }
             
-            if (k > i) {                        // Swap value
+            if (index > i) {                        // Swap value
                 temp = data[i];
-                data[i] = data[k];
-                data[k] = temp;
+                data[i] = data[index];
+                data[index] = temp;
             }
         }
         return data;

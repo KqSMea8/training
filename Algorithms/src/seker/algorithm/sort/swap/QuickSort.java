@@ -38,7 +38,7 @@ public class QuickSort implements ISort {
         return data;
     }
     
-    private void quickSort(int[] data, int low, int high) {
+    private void quickSort(final int[] data, final int low, final int high) {
         int pivot = partition(data, low, high);
         if (pivot > low + 1) {
             quickSort(data, low, pivot - 1);
@@ -49,7 +49,7 @@ public class QuickSort implements ISort {
         }
     }
     
-    public int partition(int[] data, int low, int high) {
+    private int partition(final int[] data, int low, int high) {
         while (low < high) {
             while (low < high && data[high] >= data[low]) {
                 high--;

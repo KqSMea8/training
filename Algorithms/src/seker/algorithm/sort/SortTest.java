@@ -37,15 +37,17 @@ import seker.algorithm.sort.insert.BinaryInsertSort;
 import seker.algorithm.sort.insert.InsertSort;
 import seker.algorithm.sort.insert.ShellSort;
 import seker.algorithm.sort.merge.MergeSort;
-import seker.algorithm.sort.radix.RadixSort;
+import seker.algorithm.sort.other.BucketSort;
+import seker.algorithm.sort.other.CountSort;
+import seker.algorithm.sort.other.RadixSort;
 import seker.algorithm.sort.select.HeapSort;
 import seker.algorithm.sort.select.SelectSort;
 import seker.algorithm.sort.swap.BubbleSort;
 import seker.algorithm.sort.swap.QuickSort;
 
 public class SortTest {
-    public static final int N    = 100000;
-    public static final int BASE = N;
+    public static final int N    = 200000;
+    public static final int BASE = N;//Integer.MAX_VALUE;
 
     int[]                   data = new int[N];
 
@@ -66,23 +68,27 @@ public class SortTest {
         ISort[] sorts = new ISort[] { 
                 new InsertSort(), 
                 new BinaryInsertSort(), 
-                new ShellSort(), 
-                
+                new ShellSort(),
+
                 new MergeSort(),
-                
-                new RadixSort(),
-                
+
+//                new RadixSort(),
+
                 new SelectSort(),
                 new HeapSort(),
-                
-                new BubbleSort(), 
+
+                new BubbleSort(),
                 new QuickSort(),
+                
+                new CountSort(),
+                new BucketSort(),
             };
-        sorts = new ISort[] { 
-                new ShellSort(), 
+        sorts = new ISort[] {
+                new ShellSort(),
                 new MergeSort(),
                 new HeapSort(),
                 new QuickSort(),
+                new CountSort(),
             };
 
         int[] clone = new int[data.length];

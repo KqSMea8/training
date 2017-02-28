@@ -16,26 +16,26 @@ public class BinaryInsertSort implements ISort {
     @Override
     public int[] sort(int[] data) {
         final int n = data.length;
-        int temp;
+        
+        
+        int sentinel; // 哨兵
 
         for (int i = 1, low, high, mid; i < n; i++) {
-            temp = data[i];
+            sentinel = data[i];
 
             // Binary select to find the most appropriate index: low
             for (low = 0, high = i - 1; low <= high;) {
                 mid = (low + high) / 2;
-                if (temp < data[mid]) {
+                if (sentinel < data[mid]) {
                     high = mid - 1;
                 } else {
                     low = mid + 1;
                 }
             }
+    
+            System.arraycopy(data, low, data, low + 1, i - low);
 
-            for (int j = i - 1; j >= low; j--) {
-                data[j + 1] = data[j];
-            }
-
-            data[low] = temp;
+            data[low] = sentinel;
         }
         return data;
     }

@@ -1,4 +1,4 @@
-package seker.algorithm.sort.radix;
+package seker.algorithm.sort.other;
 
 import seker.algorithm.sort.ISort;
 import seker.algorithm.sort.SortTest;
@@ -17,7 +17,7 @@ public class RadixSort implements ISort {
         for (int r = 0; r < radix; r ++) {
             int n = data.length;
             for (n = n - 1; n > 0; n--) {   // 冒泡排序
-                boolean bSwap = false;
+                boolean swap = false;
                 for (int i = 0; i < n; i++) {
                     int radix_prev = convert(r, data[i]);
                     int radix_next = convert(r, data[i + 1]);
@@ -26,10 +26,10 @@ public class RadixSort implements ISort {
                         data[i] = data[i + 1];
                         data[i + 1] = temp;
 
-                        bSwap = true;
+                        swap = true;
                     }
                 }
-                if (!bSwap) {
+                if (!swap) {
                     break;
                 }
             }

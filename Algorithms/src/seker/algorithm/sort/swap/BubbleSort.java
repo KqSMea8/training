@@ -16,20 +16,21 @@ public class BubbleSort implements ISort {
     @Override
     public int[] sort(int[] data) {
         int n = data.length;
-        boolean bSwap = false;
         int temp;
+        boolean swap;
+        
         for (n = n - 1; n > 0; n--) {
-            bSwap = false;
+            swap = false;
             for (int i = 0; i < n; i++) {
                 if (data[i] > data[i + 1]) {
                     temp = data[i];
                     data[i] = data[i + 1];
                     data[i + 1] = temp;
                     
-                    bSwap = true;
+                    swap = true;
                 }
             }
-            if (!bSwap) {
+            if (!swap) {
                 break;
             }
         }

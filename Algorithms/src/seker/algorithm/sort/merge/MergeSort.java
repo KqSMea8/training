@@ -39,53 +39,52 @@ import seker.algorithm.sort.ISort;
  *      若用单链表做存储结构，很容易给出就地的归并排序。
  */
 public class MergeSort implements ISort {
-    int[] temp;
+    
+    private int[] temp;
     
     @Override
     public int[] sort(int[] data) {
         temp = new int[data.length];
-        mergesort(data, 0, data.length - 1);
+        mergeSort(data, 0, data.length - 1);
         return data;
     }
     
     /**
-     * 将 src[s...t]归并排序成tar[s...t]
+     * 将 data[low...high]归并排序成data[low...high]
      */
-    private void mergesort(int[] data, int l, int h) {
-        if (l < h) {
-            int m = (l + h) / 2;
+    private void mergeSort(final int[] data, final int low, final int high) {
+        if (low < high) {
+            int middle = (low + high) / 2;
             
-            mergesort(data, l, m);
-            mergesort(data, m + 1, h);
+            mergeSort(data, low, middle);
+            mergeSort(data, middle + 1, high);
             
-            merge(data, l, m, h);
+            merge(data, low, middle, high);
         }
     }
     
     /*
-     * 将有序的src[l...m]和src[m+1...h]归并为有序的temp[l...h]
+     * data[low...middle]和src[middle+1...high]归并为有序的temp[low...high]
      */
-    private void merge(int[] data, int l, int m, int h) {
-        int index = l;
-        int i, j;
-        for (i = l, j = m + 1; i <= m && j <= h;) {
-            if (data[i] < data[j]) {
-                temp[index++] = data[i++];
+    private void merge(final int[] data, final int low, final int middle, final int high) {
+        int index = low;
+        
+        int indexLow, indexMiddle;
+        
+        for (indexLow = low, indexMiddle = middle + 1; indexLow <= middle && indexMiddle <= high;) {
+            if (data[indexLow] < data[indexMiddle]) {
+                temp[index++] = data[indexLow++];
             } else {
-                temp[index++] = data[j++];
+                temp[index++] = data[indexMiddle++];
             }
         }
         
-        while (i <= m) {
-            temp[index++] = data[i++];
+        if (indexLow <= middle) {
+            System.arraycopy(data, indexLow, temp, index, middle + 1 - indexLow);
+        } else if (indexMiddle <= high) {
+            System.arraycopy(data, indexMiddle, temp, index, high + 1 - indexMiddle);
         }
-        
-        while (j <= h) {
-            temp[index++] = data[j++];
-        }
-        
-        for (int k = l; k <= h; k ++) {
-            data[k] = temp[k];
-        }
+    
+        System.arraycopy(temp, low, data, low, high + 1 - low);
     }
 }

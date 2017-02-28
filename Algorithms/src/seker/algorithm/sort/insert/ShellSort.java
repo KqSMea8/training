@@ -33,18 +33,18 @@ public class ShellSort implements ISort {
     @Override
     public int[] sort(int[] data) {
         final int n = data.length;
-        int temp;
 
         for (int increment = n / 2; increment > 0; increment = increment / 2) {
             
+            int sentinel;   // 哨兵
             for (int i = increment, j; i < n; ++i) {
-                temp = data[i];
+                sentinel = data[i];
                 
-                for (j = i - increment; j >= 0 && temp < data[j]; j -= increment) {
+                for (j = i - increment; j >= 0 && sentinel < data[j]; j -= increment) {
                     data[j + increment] = data[j];
                 }
                 
-                data[j + increment] = temp;
+                data[j + increment] = sentinel;
             }
         }
         return data;

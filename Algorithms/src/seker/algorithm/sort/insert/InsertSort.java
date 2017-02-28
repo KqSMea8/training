@@ -17,7 +17,8 @@ public class InsertSort implements ISort {
     @Override
     public int[] sort(int[] data) {
         final int n = data.length;
-        int sentinel;
+        
+        int sentinel;   // 哨兵
 
         for (int i = 1, j; i < n; i++) {
             sentinel = data[i];
