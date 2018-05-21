@@ -17,10 +17,11 @@ public class Product implements Runnable {
         this.container = lst;
     }
 
+    @Override
     public void run() {
         while (true) {
             synchronized (container) {
-                if (container.size() > MultiThread.MAX) {
+                if (container.size() >= MultiThread.MAX) {
                     // 如果容器超过了最大值，就不要在生产了，等待消费
                     try {
                         container.wait();

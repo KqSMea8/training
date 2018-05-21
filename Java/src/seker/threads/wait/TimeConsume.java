@@ -27,11 +27,11 @@ public class TimeConsume implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println("Time: " + _TIME_() + " Thread:" + Thread.currentThread().getName() + " end.");
         synchronized (lock) {
             lock.notifyAll();
         }
-        
-        System.out.println("Time: " + _TIME_() + " Thread:" + Thread.currentThread().getName() + " end.");
+
     }
 
 }

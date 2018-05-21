@@ -1,8 +1,11 @@
 package seker.grammer.string;
 
 import java.lang.ref.WeakReference;
+import java.util.Arrays;
 
 public class Main {
+
+    public static final int INT_20 = 20;
 
     /**
      * @param args
@@ -30,5 +33,62 @@ public class Main {
         
         int a = Integer.valueOf("899999");
         System.out.println(a);
+
+        byte[] bytes = new byte[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,};
+        System.out.println(data2String(bytes));
+
+        short[] shorts = new short[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,};
+        System.out.println(data2String(shorts));
+
+        int[] ints = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,};
+        System.out.println(data2String(ints));
+    }
+
+    public static String data2String(byte[] data) {
+        if (null != data && data.length > INT_20) {
+            StringBuilder sb = new StringBuilder(INT_20 * 6);
+            sb.append('[');
+            sb.append(data[0]);
+            for (int i = 1; i < INT_20; i++) {
+                sb.append(", ");
+                sb.append(data[i]);
+            }
+            sb.append(']');
+            return sb.toString();
+        } else {
+            return Arrays.toString(data);
+        }
+    }
+
+    public static String data2String(short[] data) {
+        if (null != data && data.length > INT_20) {
+            StringBuilder sb = new StringBuilder(INT_20 * 6);
+            sb.append('[');
+            sb.append(data[0]);
+            for (int i = 1; i < INT_20; i++) {
+                sb.append(", ");
+                sb.append(data[i]);
+            }
+            sb.append(']');
+            return sb.toString();
+        } else {
+            return Arrays.toString(data);
+        }
+    }
+
+    public static String data2String(int[] data) {
+        if (null != data && data.length > INT_20) {
+            StringBuilder sb = new StringBuilder(INT_20 * 6);
+            sb.append('[');
+            sb.append(data[0]);
+            for (int i = 1; i < INT_20; i++) {
+                sb.append(", ");
+                sb.append(data[i]);
+            }
+            sb.append(']');
+            return sb.toString();
+        } else {
+            return Arrays.toString(data);
+        }
     }
 }

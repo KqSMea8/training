@@ -34,7 +34,7 @@ public class WaitTest {
             new Thread(new TimeConsume(lock, SECOND * 6), "Thread-6").start();
             
             try {
-                lock.wait(SECOND * 3);
+                lock.wait(SECOND * 10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
