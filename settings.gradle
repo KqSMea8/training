@@ -1,2 +1,2 @@
 
-include "Algorithms", "DesignPattern", "Java"
+include ":Algorithms", ":DesignPattern", ":Java"
